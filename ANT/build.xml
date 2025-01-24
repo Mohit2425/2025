@@ -1,0 +1,47 @@
+<project default="runtests">
+	<property name="version" value="2.317.10.0"/>
+	<property environment="env"/>
+	<property name="provar.home" value="C:/Program Files/Provar2.14.1/"/>
+	<property name="testproject.home" value=".."/>
+	<property name="testproject.results" value="../ANT/Results"/>
+	<property name="testcycle.path" value="C:\Users\mohit.raj\git\repositoryNew\NewProject\TestCycle"/>
+
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Increment" 
+				testEnvironment="" 
+				webBrowser="Chrome" 
+				webBrowserConfiguration="Full Screen"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="Full Screen" 
+				salesforceMetadataCache="Reuse" 
+				projectCachePath="../.provarCaches"
+				testOutputlevel="BASIC" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				sendEmail ="TESTRUN"
+				dontFailBuild="true"
+				testCycleAutoRerunCount="0"
+	        	testCyclePath="${testcycle.path}"
+    	    	testCycleRunType="ALL"
+				invokeTestRunMonitor="true"
+		>
+			<fileset id="testplan" dir="../plans/NewPlan"></fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+		</Run-Test-Case>
+
+
+	</target>
+
+</project>

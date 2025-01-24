@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="bc191bcd-196b-4706-8645-afe8763122a1" id="0">
+  <summary/>
+  <remarks>hello</remarks>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="dc5da764-896a-403d-858e-d215329ccfd4" name="SetValues" testItemId="4" title="Set Values: {}">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="New" variableScope="Test">
+          <cacheToken>C:\\Users\\mohit.raj\\git\\repositoryNew\\NewProject\\templates\\New XLS Worksheet.xls;1734435239234</cacheToken>
+          <cachedParameters>
+            <apiParam name="Color"/>
+            <apiParam name="Fruit"/>
+            <apiParam name="Size"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/NewWork.xls</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>C:/Users/mohit.raj/git/repositoryNew/NewProject/templates/NewWork.xls;1734880638797</cacheToken>
+          <cachedParameters>
+            <apiParam name="Completed"/>
+            <apiParam name="Desc"/>
+            <apiParam name="Id"/>
+            <apiParam name="DefaultId"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/NewWork.xls</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet2</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="7f47ffce-cd74-4b82-82a0-5a18a4cb7221" name="WebConnect" testItemId="13" title="Web Connect: RestApi">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">RestApi</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">c04f960b-ff36-4269-81f1-57bfc864d4a5</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">RestApi</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="d7e906e6-9ff4-4c95-ac94-d89361cbfcc3" name="WebConnect" testItemId="7" title="Web Connect: WebServiceConnection">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">RestApi</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">WebServiceConnection</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">c04f960b-ff36-4269-81f1-57bfc864d4a5</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="420d1a16-3252-4fc8-8b0d-5a082ef3a029" name="SetValues" testItemId="11" title="Set Values: LoopCounter">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">LoopCounter</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">1</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="2e7cf6bf-9ce1-4aa7-b876-7f4aaa2ff136" name="ForEach" testItemId="8" title="For Each: {New}=&gt;Any">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="New"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Any</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="b59799a0-00a9-42a5-b8c9-e927a12a70f8" name="RestRequest" testItemId="6" title="Web Request (REST): ⇒RestResponse">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">WebServiceConnection</value>
+                </argument>
+                <argument id="targetValue">
+                  <value class="restTarget" uri="rest:untyped?bodyStyle=JSON&amp;method=POST"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">RestResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">RestResponseStatus</value>
+                </argument>
+                <argument id="restResourceUrl">
+                  <value class="value" valueClass="string">/posts</value>
+                </argument>
+                <argument id="restRequestHeader"/>
+                <argument id="restBody">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">{\n  "title": "</value>
+                      <variable>
+                        <path element="New">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="Title"/>
+                      </variable>
+                      <value valueClass="string">",\n  "body": "</value>
+                      <variable>
+                        <path element="New">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="Body"/>
+                      </variable>
+                      <value valueClass="string">",\n  "userId": </value>
+                      <variable>
+                        <path element="New">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="UserId"/>
+                      </variable>
+                      <value valueClass="string">\n}</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="restAttachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="body" name="restBody" title="Body">
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">application/json</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                  <childParams>
+                    <apiParam name="name" title="Attachment Name"/>
+                    <apiParam name="fileName" title="File Name"/>
+                    <apiParam name="contentType" title="Content Type">
+                      <type>
+                        <choiceType>
+                          <constraints>
+                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                          </constraints>
+                        </choiceType>
+                      </type>
+                    </apiParam>
+                    <apiParam name="data" title="Data">
+                      <type>
+                        <urlType/>
+                      </type>
+                    </apiParam>
+                    <apiParam name="base64Encode" title="Encode As Base64">
+                      <type>
+                        <booleanType/>
+                      </type>
+                    </apiParam>
+                  </childParams>
+                </compoundApiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="7aaa3d18-7366-4e0f-864b-0479c80ad08d" name="AssertValues" testItemId="3" title="Assert: {RestResponse.body}{RestResponse.id}{RestResponse.title}{RestResponse.userId} EqualTo {SourceData[LoopCounter].Desc}{SourceData[LoopCounter].DefaultId}{SourceData[LoopCounter].Completed}{SourceData[LoopCounter].Id}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="compound">
+                    <parts>
+                      <variable>
+                        <path element="RestResponse"/>
+                        <path element="body"/>
+                      </variable>
+                      <variable>
+                        <path element="RestResponse"/>
+                        <path element="id"/>
+                      </variable>
+                      <variable>
+                        <path element="RestResponse"/>
+                        <path element="title"/>
+                      </variable>
+                      <variable>
+                        <path element="RestResponse"/>
+                        <path element="userId"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="compound">
+                    <parts>
+                      <variable>
+                        <path element="SourceData">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="Desc"/>
+                      </variable>
+                      <variable>
+                        <path element="SourceData">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="DefaultId"/>
+                      </variable>
+                      <variable>
+                        <path element="SourceData">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="Completed"/>
+                      </variable>
+                      <variable>
+                        <path element="SourceData">
+                          <filter class="conditionFilter">
+                            <condition class="variable">
+                              <path element="LoopCounter"/>
+                            </condition>
+                          </filter>
+                        </path>
+                        <path element="Id"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage">
+                  <value class="value" valueClass="string">Nothing</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="8bc9739d-f73d-4bcb-b48a-5a2fc5f70aa4" name="SetValues" testItemId="12" title="Set Values: LoopCounter">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LoopCounter</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="add">
+                          <lhs class="variable">
+                            <path element="LoopCounter"/>
+                          </lhs>
+                          <rhs class="value" valueClass="decimal">1</rhs>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
