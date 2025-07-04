@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="14efc6d9-ebb5-4b65-bb10-0450f53bef1d" id="0">
+<testCase id="3" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="79884599-746f-48a8-880a-fc41b7459711" name="ApexConnect" testItemId="1" title="Salesforce Connect: Presonnel (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="79ea846d-15a9-459b-a0da-5eed2808a9bb" name="ApexConnect" testItemId="7" title="Salesforce Connect: Presonnel (Test)">
       <arguments>
-        <argument id="connectionName">
+        <argument argId="8f29a036-437b-4f5f-8acb-be29d751a942" id="connectionName">
           <value class="value" valueClass="string">Presonnel</value>
         </argument>
         <argument id="connectionId">
@@ -13,21 +13,23 @@
         <argument id="resultName">
           <value class="value" valueClass="string">Presonnel</value>
         </argument>
+        <argument argId="4d172545-c3d0-44b9-96e2-8ba6769b612b" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
-        <argument id="uiApplicationName">
-          <value class="value" valueClass="string">LightningSales</value>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
-        <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
+        <argument id="uiApplicationName"/>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="reuseConnectionName"/>
-        <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -46,7 +48,82 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="49ad4ff6-c12a-404b-ab8a-d4554440fa82" name="UiWithScreen" testItemId="2" title="On SF Account New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="cf0bd252-a99a-4470-ad37-a382432071e7" name="UiWithScreen" testItemId="8" title="On SF Account Home screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Presonnel</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=ObjectHome"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Account Home screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="7e2078ec-9d3f-4b2b-8454-320a8d9a2353" name="UiDoAction" testItemId="10" title="Click the New button">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26action%3DNew"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                </argument>
+                <argument id="hover">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                </argument>
+                <argument id="locatorParams"/>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Click the New button</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="hover" title="Hover before Clicking">
+                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="24684bad-804b-4856-b7a4-5deb917a7ebd" name="UiWithScreen" testItemId="11" title="On SF Account New screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Presonnel</value>
@@ -55,7 +132,7 @@
           <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=New&amp;noOverride=true"/>
         </argument>
         <argument id="navigate">
-          <value class="value" valueClass="string">Always</value>
+          <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF Account New screen</value>
@@ -81,18 +158,18 @@
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="3">
+        <clause name="substeps" testItemId="12">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="b0e221dc-37b0-4e8b-a7ca-72ebaec9d362" name="UiDoAction" testItemId="4" title="Set the Account Name field to NewNameDemo">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="6c6b19df-c0de-4418-b9df-54b72a4188ec" name="UiDoAction" testItemId="13" title="Set the Account Name field to NewCus">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DName"/>
+                  <value class="uiLocator" uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Ffield%3DName%26object%3DAccount"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">NewNameDemo</value>
+                  <value class="value" valueClass="string">NewCus</value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -117,7 +194,7 @@
                 </argument>
                 <argument id="locatorParams"/>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Account Name field to NewNameDemo</value>
+                  <value class="value" valueClass="string">Set the Account Name field to NewCus</value>
                 </argument>
               </arguments>
               <generatedParameters>
@@ -141,7 +218,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="0bd16e4e-b3d0-4e32-abe1-cdc3272a0163" name="UiDoAction" testItemId="5" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3cb958f1-1db1-4160-979a-21efd2f82e3c" name="UiDoAction" testItemId="14" title="Click the Save button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26action%3Dsave"/>
@@ -200,7 +277,7 @@
       </clauses>
       <generatedParameters>
         <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
-          <summary>The name under which the resulting Account Id will be stored.</summary>
+          <summary>The name under which the resulting Object Id will be stored.</summary>
           <type>
             <textType/>
           </type>
@@ -221,4 +298,21 @@
       </generatedParameters>
     </apiCall>
   </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:4d172545-c3d0-44b9-96e2-8ba6769b612b" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName"/>
+  </args>
+  <tags/>
 </testCase>

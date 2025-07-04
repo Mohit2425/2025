@@ -1,0 +1,61 @@
+<project default="runtests">
+	<property environment="env"/>
+	<property name="provar.home" value="C:/Program Files/Provar_2.15.1.2/Provar/"/>
+	<property name="testproject.home" value=".."/>
+	<property name="testproject.results" value="../ANT/Results"/>
+	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
+	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
+	
+	<property name="testcycle.path" value="C:\Users\mohit.raj\git\repositoryNew\NewProject\TestCycle"/>
+	
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Increment" 
+				testEnvironment="" 
+				webBrowser="Chrome" 
+				webBrowserConfiguration="Full Screen"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="Full Screen" 
+				excludeCallableTestCases="false" 
+				salesforceMetadataCache="Reuse" 
+				projectCachePath="../../.provarCaches"
+				testOutputlevel="BASIC" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				secretsPassword="${secrets.password}"
+				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+				sendEmail="TESTCYCLE"
+	        	testCyclePath="${testcycle.path}"
+    	    	testCycleRunType="ALL"
+				dontFailBuild="true"
+				testCycleAutoRerunCount="0"
+				invokeTestRunMonitor="false"
+				>
+		
+			<fileset dir="../tests"><include name="Test Case 1.testcase"/></fileset>
+			<emailProperties sendEmail="true" primaryRecipients="rajmohit2524@gmail.com" ccRecipients="rajmohit2425@gmail.com" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeBdd="false" includeSkipped="false" includeTestCasePathHierarchy="true" includeTestCaseShowSummary="true" includeBasicLogs="false" includeDetailLogs="false" includeDiagnosticTrace="false" includeTestStepTime="true" includeNoScreenshot="false" includeScreenshotThumbnail="false" includeFullScreenShot="true"/>
+		</Run-Test-Case>
+
+		<Test-Cycle-Report provarHome="${provar.home}"
+				projectPath="${testproject.home}" 
+	        	testCyclePath="${testcycle.path}"
+				reportPath="${testcycle.path}/Report.pdf"
+				failBuildIfFailures="true"
+				invokeTestRunMonitor="true"
+				>
+			<emailProperties sendEmail="true" primaryRecipients="rajmohit2524@gmail.com" ccRecipients="rajmohit2425@gmail.com" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeBdd="false" includeSkipped="false" includeTestCasePathHierarchy="true" includeTestCaseShowSummary="true" includeBasicLogs="false" includeDetailLogs="false" includeDiagnosticTrace="false" includeTestStepTime="true" includeNoScreenshot="false" includeScreenshotThumbnail="false" includeFullScreenShot="true"/>
+		</Test-Cycle-Report>
+
+	</target>
+</project>

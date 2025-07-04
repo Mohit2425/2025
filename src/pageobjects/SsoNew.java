@@ -67,5 +67,8 @@ public WebElement Pdf;
 @ButtonType()
 @FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Download']")
 public WebElement download;
+@TextType()
+@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//span/force-record-avatar/span/img")
+public WebElement a;
 }
 		

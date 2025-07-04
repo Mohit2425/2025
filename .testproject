@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject guid="a8b8d27e-ff92-4fc2-8ccf-03934cb0fef0" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject guid="a8b8d27e-ff92-4fc2-8ccf-03934cb0fef0" secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/NewProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,6 +8,19 @@
   <sourcePath>src</sourcePath>
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
+  <variables>
+    <testVariable name="Val">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="password">true</valueConstraint>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue secureStorageNodeId="3b33b11a-b608-4c75-bade-48cbd85224b2"/>
+      </values>
+    </testVariable>
+  </variables>
   <connectionClasses>
     <connectionClass name="sf">
       <connections>
@@ -30,7 +43,13 @@
         <connection id="f25cbc50-aab3-4809-8203-a41b6c79e38b" name="Ui">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="4b45605e-9658-4659-bb3c-7d7ad812d1d2" url="se:password={password};baseUrl=file:///C:/Users/mohit.raj/OneDrive/Desktop/!DOCTYPE%20html.html"/>
+            <connectionUrl secureStorageNodeId="4b45605e-9658-4659-bb3c-7d7ad812d1d2" url="se:baseUrl=file:///C:/Users/mohit.raj/OneDrive/Desktop/file.html"/>
+          </connectionUrls>
+        </connection>
+        <connection id="1cd0e19a-7eab-40c1-960f-344c2a1af86a" name="UploadFileConn">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=file:///C:/Users/mohit.raj/OneDrive/Desktop/fileupload.html"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -58,9 +77,39 @@
         <connection id="c04f960b-ff36-4269-81f1-57bfc864d4a5" name="RestApi">
           <summary/>
           <connectionUrls>
-            <connectionUrl url="restservice:url=https://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION">
+            <connectionUrl url="restservice:url=https://jsonplaceholder.typicode.com/;authenticationType=NO_AUTHENTICATION">
               <customHeaders/>
             </connectionUrl>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="msexc">
+      <connections>
+        <connection id="07c16e67-5d88-4df0-bd34-4eaf11eb704a" name="outlook">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="f0254161-5a01-4764-9b28-14e0ec499f86" url="exchange:serverType=EWS;user=rajmohit2524@outlook.com;password={password}"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="google">
+      <connections>
+        <connection id="460c186c-bc35-482c-bae2-0ad2e8f8f267" name="gmail">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="b8fcebc2-e778-46ab-9900-664650f820bf" url="google:user=rajmohit2524@gmail.com;password={password};authenticationType=PASSWORD"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="testmanager">
+      <connections>
+        <connection id="8b8f0951-f6ee-46b2-9a25-e97163ef4138" name="Demo_App">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="9dd53306-8fc0-4142-a5b6-989ca76875e1" url="tm:projectName=NewProject;projectKey=PT;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provarindia5-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D5j000001v9XeEAI/0055j0000026zFvAAI;authenticationType=OAUTH;jwtCertType=JKS"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -147,4 +196,7 @@
       </devices>
     </browserProvider>
   </browserProviders>
+  <associations>
+    <association assocationType="TM.TEST_PROJECT" connectionId="8b8f0951-f6ee-46b2-9a25-e97163ef4138" entityKey="a0sJ4000002VDBKIA4"/>
+  </associations>
 </testProject>

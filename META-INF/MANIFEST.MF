@@ -21,6 +21,7 @@ Require-Bundle: com.provar.core.testapi,
  org.seleniumhq.selenium.selenium-json,
  org.seleniumhq.selenium.selenium-manager,
  org.seleniumhq.selenium.selenium-os,
- org.seleniumhq.selenium.selenium-java
+ org.seleniumhq.selenium.selenium-java,
+ com.google.guava
 Automatic-Module-Name: NewProject
 Bundle-RequiredExecutionEnvironment: JavaSE-11

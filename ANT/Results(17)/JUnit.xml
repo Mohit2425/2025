@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="NewProject/tests" tests="1" failures="1" skipped="0" hostname="ibm-mohitraj" time="74.189" timestamp="Tue Mar 18 19:18:42 IST 2025">
+	<properties>
+		<property name="excludeCallableTestCases" value="true"/>
+		<property name="testEnvironment" value=""/>
+		<property name="pluginOutputLevel" value="WARNING"/>
+		<property name="projectPath" value=".."/>
+		<property name="salesforceMetadataCache" value="Reuse"/>
+		<property name="resultsPathDisposition" value="Increment"/>
+		<property name="testOutputLevel" value="INFO"/>
+		<property name="webBrowserType" value="Chrome"/>
+		<property name="resultsPath" value="../ANT/Results"/>
+		<property name="webBrowserConfiguration" value="Full Screen"/>
+		<property name="projectCachePath" value="C:\Users\mohit.raj\git\repositoryNew\NewProject\ANT\..\.provarCaches"/>
+	</properties>
+	<testcase classname="tests/Test Case 1.testcase" name="Test Case 1.testcase" time="48.741">
+		<failure message="Execution failed"><![CDATA[Connection exception while opening Partner connection. Connection name: Presonnel, environment: <default>, authEndpoint: https://login.salesforce.com/services/Soap/u/61.0, userName: rajmohit2425@gmail.com, password: [supplied], securityToken: [empty]]]></failure>
+	</testcase>
+</testsuite>

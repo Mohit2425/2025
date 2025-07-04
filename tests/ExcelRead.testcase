@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="fee7947f-eda9-4343-9db0-93f93975e7d2" id="9">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="eef784e5-38a0-4cbb-993c-0926681d184f" name="SetValues" testItemId="4" title="Set Values: a">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">a</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">1</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.Switch" guid="cf866058-a56c-4b07-9daf-9bac775dacde" name="Switch" testItemId="10" title="Switch: {a}">
+      <arguments>
+        <argument id="value">
+          <value class="variable">
+            <path element="a"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="case" testItemId="11">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="d4bd5b24-0b55-4c92-9e08-3a4cfd7c6f75" name="SwitchCase" testItemId="12" title="Case: 1">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="13">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="f3b15522-2fd5-4c6e-b414-4d667263deda" name="SetValues" testItemId="35" title="Set Values: Name">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">Name</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">Mohit</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="47f375fb-1620-4fe9-ade4-bcc973668455" name="Break" testItemId="38" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="19">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="f0249c6a-6ee9-499f-92d2-663c5ef1d320" name="SwitchCase" testItemId="20" title="Case: 1">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="21">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="a78c8cb6-31b3-4b93-a4fc-520587ee2355" name="SetValues" testItemId="36" title="Set Values: Name1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">Name1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">Rohit</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="f1b79830-311b-4550-a9db-3be932b45964" name="Break" testItemId="39" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="22">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" guid="be84471d-a990-4f40-824c-57a01a9a23ed" name="SwitchCase" testItemId="23" title="Case: 3">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">3</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="24">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="d545551c-a07d-4c3f-a63a-dd647f1063bf" name="SetValues" testItemId="37" title="Set Values: Name2">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">Name2</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">Sohan</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="a5f6f182-5f00-4cca-978b-28d08e424fc5" name="Break" testItemId="41" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="default" testItemId="42">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchDefault" guid="8a6848c5-1e62-4c7a-a9ba-4e80df717243" name="SwitchDefault" testItemId="43" title="Default">
+              <clauses>
+                <clause name="steps" testItemId="44">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="606003e2-0a6b-48d8-b16f-05b6bbea874d" name="SetValues" testItemId="45" title="Set Values: ">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath"/>
+                              <namedValue name="value"/>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" guid="223f8eeb-353c-4362-a3cd-5333db9c9c39" name="Break" testItemId="46" title="Break"/>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

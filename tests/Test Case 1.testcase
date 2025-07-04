@@ -1,100 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="3d3886bc-0ae4-435e-876f-bc80b1dc40d0" id="1">
+<testCase guid="3d3886bc-0ae4-435e-876f-bc80b1dc40d0" id="9">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="f79ccc63-5031-49f4-be82-3d15d10ef2aa" name="ApexConnect" testItemId="60" title="Salesforce Connect: Presonnel (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiConnect" guid="870324bd-a20e-41e2-971b-c15895de13f0" name="UiConnect" testItemId="65" title="UI Connect: UploadFileConn">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Presonnel</value>
+          <value class="value" valueClass="string">UploadFileConn</value>
         </argument>
         <argument id="connectionId">
-          <value class="value" valueClass="id">7c4c9c21-6d19-429b-bccf-b19e74925b7d</value>
+          <value class="value" valueClass="id">1cd0e19a-7eab-40c1-960f-344c2a1af86a</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Presonnel</value>
+          <value class="value" valueClass="string">UploadFileConn</value>
         </argument>
-        <argument id="reuseConnectionName"/>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
-        <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
-        </argument>
-        <argument id="uiApplicationName"/>
-        <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
+        <argument id="reuseConnectionName"/>
         <argument id="privateBrowsingMode"/>
-        <argument id="enableObjectIdLogging">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="autoCleanup"/>
-        <argument id="cleanupConnectionName"/>
-        <argument id="logFileLocation"/>
-        <argument id="username"/>
-        <argument id="password"/>
-        <argument id="securityToken"/>
-        <argument id="environment"/>
-        <argument id="lightningMode">
-          <value class="value" valueClass="string">default</value>
-        </argument>
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="a4671263-cad4-4b48-9f3b-ded64027061d" name="SetValues" testItemId="58" title="Set Values: CurrentDate">
-      <tags/>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="814cbb54-fae6-4aa5-80c8-6bd497a9eee3" name="UiWithScreen" testItemId="66" title="On MyPageObject page">
       <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">CurrentDate</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="funcCall" id="DateFormat">
-                  <argument id="date">
-                    <value class="funcCall" id="DateAdd">
-                      <argument id="date">
-                        <value class="variable">
-                          <path element="TODAY"/>
-                        </value>
-                      </argument>
-                    </value>
-                  </argument>
-                  <argument id="outputFormat">
-                    <value class="value" valueClass="string">M/d/YYYY</value>
-                  </argument>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">UploadFileConn</value>
         </argument>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="7f82f89f-1e4f-4417-8227-f2042bf554da" name="SetValues" testItemId="64" title="Set Values: a1">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">a1</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="value" valueClass="string">1</value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
+        <argument id="target">
+          <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
         </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On MyPageObject page</value>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">IfNeccessary</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="uiTargetUrl"/>
       </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="67">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="cde6ee28-b564-4208-b0ef-1f004b0069d4" name="UiDoAction" testItemId="68" title="Call the uploadMultipleFiles method">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:method?operation=uploadMultipleFiles&amp;pageId=pageobjects.MyPageObject"/>
+                </argument>
+                <argument id="locatorParams"/>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Call the uploadMultipleFiles method</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="param_file">
+                  <value class="value" valueClass="string">C:\\Users\\mohit.raj\\Downloads\\ProvarVersion15.jpg</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="param_file" title="File">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="uiTargetUrl" title="Web Page">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
     </apiCall>
   </steps>
 </testCase>
